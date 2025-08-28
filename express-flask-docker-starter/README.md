@@ -1,4 +1,5 @@
-# Express + Flask (Docker + Compose) Starter
+# Frontend (Node.js with Express):
+
 
 A minimal project where a Node.js (Express) **frontend** renders a form and forwards
 submissions to a **Flask** **backend**. Both services run with Docker and are connected
