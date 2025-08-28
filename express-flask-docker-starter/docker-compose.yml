@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    image: yourdockerhubusername/flask-backend:latest
+    container_name: flask-backend
+    ports:
+      - "5000:5000"
+    networks:
+      - appnet
+
+  frontend:
+    build: ./frontend
+    image: yourdockerhubusername/express-frontend:latest
+    container_name: express-frontend
+    environment:
+      - BACKEND_URL=http://backend:5000/submit
+      - PORT=3000
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge

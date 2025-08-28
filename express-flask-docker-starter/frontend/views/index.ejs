@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flask Assignment 2 - Express Frontend</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Submit Your Details</h1>
+    <form method="POST" action="/submit">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Your name" required/>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@example.com" required/>
+
+      <label>Message</label>
+      <textarea name="message" rows="4" placeholder="Say something..." required></textarea>
+
+      <button type="submit">Send to Flask</button>
+    </form>
+
+    <% if (error) { %>
+      <div class="alert error"><%= error %></div>
+    <% } %>
+
+    <% if (result) { %>
+      <div class="alert success">
+        <h3>Flask Response</h3>
+        <pre><%= JSON.stringify(result, null, 2) %></pre>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
